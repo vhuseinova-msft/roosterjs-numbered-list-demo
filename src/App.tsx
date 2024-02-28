@@ -59,7 +59,12 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
     const updateContentPlugin = createUpdateContentPlugin(
       UpdateMode.OnContentChangedEvent | UpdateMode.OnUserInput,
       (content: string) => {
-        console.log("updateContentPlugin", content);
+        console.log(
+          "updateContentPlugin",
+          content,
+          "\n\n\neditor.current?.getContent()",
+          editor.current?.getContent()
+        );
         onChange && onChange(content);
       }
     );
