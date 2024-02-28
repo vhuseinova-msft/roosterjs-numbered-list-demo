@@ -15,7 +15,7 @@ const RichTextEditorWrapper = (): JSX.Element => {
       onChange={(newContent) => {
         setTimeout(() => {
           setContent(newContent);
-        }, 1);
+        });
       }}
       placeholderText="Type something here"
     />
