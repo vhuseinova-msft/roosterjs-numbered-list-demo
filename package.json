@@ -18,12 +18,18 @@
     "roosterjs-react": "^8.55.0",
     "roosterjs-editor-types-compatible": "^8.55.0",
     "roosterjs-editor-core": "^8.55.0",
-    "@fluentui/react": "^8.115.6"
+    "@fluentui/react": "^8.115.6",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-junit": "^16.0.0",
+    "jest": "29.7.0",
+    "babel-jest": "^29.5.0",
+    "ts-jest": "^29.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -7,7 +7,9 @@ import { initializeIcons } from "@fluentui/react";
 initializeIcons();
 
 const RichTextEditorWrapper = (): JSX.Element => {
-  const [content, setContent] = useState<string | undefined>(undefined);
+  const [content, setContent] = useState<string | undefined>(
+    "test initial content"
+  );
 
   return (
     <RichTextEditor

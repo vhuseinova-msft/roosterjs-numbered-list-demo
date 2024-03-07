@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
-import "./App.css";
 import {
   Rooster,
   createUpdateContentPlugin,
@@ -24,19 +23,6 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
   const editor = useRef<IEditor | null>(null);
   const { content, onChange, placeholderText } = props;
 
-  useEffect(() => {
-    console.log(
-      "Content",
-      content,
-      "\n\n\neditor.current?.getContent()",
-      editor.current?.getContent()
-    );
-    if (content !== editor.current?.getContent()) {
-      console.log("The content is different");
-      editor.current?.setContent(content || "");
-    }
-  }, [content]);
-
   const ribbonPlugin = React.useMemo(() => {
     return createRibbonPlugin();
   }, []);
@@ -59,12 +45,6 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
     const updateContentPlugin = createUpdateContentPlugin(
       UpdateMode.OnContentChangedEvent | UpdateMode.OnUserInput,
       (content: string) => {
-        console.log(
-          "updateContentPlugin",
-          content,
-          "\n\n\neditor.current?.getContent()",
-          editor.current?.getContent()
-        );
         onChange && onChange(content);
       }
     );
@@ -84,10 +64,12 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
     <div>
       {ribbon}
       <Rooster
+        initialContent={content}
         plugins={plugins}
         editorCreator={editorCreator}
         imageSelectionBorderColor={"blue"}
         doNotAdjustEditorColor={true}
+        data-testid="rooster-rich-text-editor"
       />
     </div>
   );
